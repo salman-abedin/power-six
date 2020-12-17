@@ -1,6 +1,3 @@
-var row, square, i, j, img, selected;
-var whites_turn = true;
-
 const pieces = {
    11: 'black_rook',
    12: 'black_knight',
@@ -23,6 +20,9 @@ const pieces = {
    70: 'white_pawn',
 };
 
+var row, square, i, j, img, selected;
+var whites_turn = true;
+
 function _img_piece(name) {
    return '<img src=assets/' + name + '.png>';
 }
@@ -43,7 +43,7 @@ function handle_click() {
          return;
       }
       $(this).html(selected.html());
-      $(this).css('border', '5px solid black');
+      $(this).css('border', '10px solid black');
 
       selected.empty();
       selected.css('border', '');
@@ -57,7 +57,7 @@ function handle_click() {
    } else {
       selected = $(this);
       $('.square').css('border', '');
-      selected.css('border', '5px solid black');
+      selected.css('border', '10px solid black');
    }
 }
 
