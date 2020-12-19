@@ -36,6 +36,12 @@ function img_tag(i, j) {
 }
 
 function handle_click() {
+   // if (
+   //    (whites_turn && $(this).html().includes('black')) ||
+   //    (!whites_turn && $(this).html().includes('white'))
+   // ) {
+   //    return;
+   // }
    if (selected) {
       if ($(this).html() === selected.html()) {
          selected.css('border', '');
@@ -55,6 +61,7 @@ function handle_click() {
          transform: whites_turn ? 'rotate(0deg)' : 'rotate(180deg)',
       });
    } else {
+      if (!$(this).html()) return;
       selected = $(this);
       $('.square').css('border', '');
       selected.css('border', '10px solid black');

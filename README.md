@@ -1,8 +1,8 @@
 # Power Six: E-Ink Friendly Multi-player Chess App
 
-Power Six is a web app I am working on in order to play chess with my friends on **Kindle Paperwhite 4**. 😎
+Power Six is a web app I am working on in order to play chess with my friends on my **Kindle Paperwhite 4**. 😎
 
-<img src="https://gitlab.com/salman-abedin/assets/-/raw/master/power-six.png" width="500">
+<img src="https://gitlab.com/salman-abedin/assets/-/raw/master/power-six-1.png" width="300"> <img src="https://gitlab.com/salman-abedin/assets/-/raw/master/power-six-2.png" width="300" style="float: left;">
 
 # Usage
 
@@ -20,15 +20,12 @@ Go to [is.gd/powersix](https://is.gd/powersix) using the **Experimental Browser*
 
 -  Have fun cracking your brain. 😄
 
-# Version Log
-
--  **0.1.0**: Playable. 😅
 
 # Confirmed Devices
 
--  Amazon Kindle Basic
--  Amazon Kindle Paperwhite
--  Amazon Kindle Oasis
+-  Kindle Basic
+-  Kindle Paperwhite
+-  Kindle Oasis
 
 # TODOs
 
@@ -38,6 +35,14 @@ Go to [is.gd/powersix](https://is.gd/powersix) using the **Experimental Browser*
 -  Spectators
 -  Customizations
 -  Engine for Single Player
+
+# Note for Developers
+
+-  Don't use newer CSS/Javascript features
+
+# Version Log
+
+-  **0.1.0**: Playable. 😅
 
 # Contact
 
