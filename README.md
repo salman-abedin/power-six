@@ -42,7 +42,8 @@ Go to [is.gd/powersix](https://is.gd/powersix) using the **Experimental Browser*
 
 # Version Log
 
--  **0.1.0**: Playable. 😅
+-  **0.1.0**: Proof of Concept.
+-  **0.2.0**: Added castling support & UI optimizations. 😅
 
 # Contact
 
