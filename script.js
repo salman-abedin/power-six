@@ -20,56 +20,44 @@ const pieces = {
    70: 'white_pawn',
 };
 
-var row,
-   square,
-   i,
-   j,
-   img,
-   position_old,
-   position_new,
-   is_piece,
-   reply,
-   piece_image;
-
+var row, square, i, j, img, position_old, position_new, is_piece, reply;
 var whites_turn = true;
 var can_castle_white = true;
 var can_castle_black = true;
 
 function _img_piece(name) {
-   piece_image = document.createElement('img');
-   piece_image.setAttribute('src', 'assets/' + name + '.png');
-   return piece_image;
+   return '<img src=assets/' + name + '.png>';
 }
 
 function img_tag(i, j) {
    if (i === 2) tag = _img_piece(pieces[20]);
    else if (i === 7) tag = _img_piece(pieces[70]);
    else if (i === 1 || i === 8) tag = _img_piece(pieces[i * 10 + j]);
-   else return;
+   else tag = '';
    return tag;
 }
 
 function rotate() {
    whites_turn = !whites_turn;
-   document.querySelectorAll('.square').forEach((square) => {
-      square.style.transform = whites_turn ? 'rotate(0deg)' : 'rotate(180deg)';
+   $('.square').css({
+      transform: whites_turn ? 'rotate(0deg)' : 'rotate(180deg)',
    });
 }
 
 function swap(position_selected) {
-   position_selected.innerHTML = position_old.innerHTML;
-   position_selected.style.border = '10px solid black';
+   position_selected.html(position_old.html());
+   position_selected.css('border', '10px solid black');
    position_new = position_selected;
 
-   position_old.innerHTML = '';
-   position_old.style.border = '';
+   position_old.empty();
+   position_old.css('border', '');
    position_old = null;
 }
 
 function select(position_selected) {
-   if (position_new) position_new.style.border = '';
-   if (position_old) position_old.style.border = '';
-   position_selected.style.border = '10px solid black';
+   if (position_new) position_new.css('border', '');
+   if (position_old) position_old.css('border', '');
+   position_selected.css('border', '10px solid black');
    position_old = position_selected;
 }
 
@@ -82,21 +70,21 @@ function prompt_caste(position_selected) {
 }
 
 function handle_click() {
-   is_piece = this.innerHTML;
+   is_piece = $(this).html();
    if (position_old) {
       if (
          (whites_turn && is_piece.indexOf('white') !== -1) ||
          (!whites_turn && is_piece.indexOf('black') !== -1)
       )
-         select(this);
+         select($(this));
       else {
          if (
-            position_old.innerHTML.indexOf('king') !== -1 &&
+            position_old.html().indexOf('king') !== -1 &&
             (can_castle_white || can_castle_black)
          )
-            prompt_caste(this);
+            prompt_caste($(this));
          else {
-            swap(this);
+            swap($(this));
             rotate();
          }
       }
@@ -107,22 +95,19 @@ function handle_click() {
          (!whites_turn && is_piece.indexOf('white') !== -1)
       )
          return;
-      select(this);
+      select($(this));
    }
 }
 
 for (i = 1; i <= 8; ++i) {
-   row = document.createElement('div');
-   row.className = 'row';
+   row = $('<div class="row">');
    for (j = 1; j <= 8; ++j) {
-      square = document.createElement('div');
-      square.className = 'square';
+      square = $('<div class="square">');
       if ((j % 2 === 0 && i % 2 !== 0) || (j % 2 !== 0 && i % 2 === 0))
-         square.style.backgroundColor = '#666';
-      piece_image = img_tag(i, j);
-      if (piece_image) square.appendChild(piece_image);
-      square.addEventListener('click', handle_click);
-      row.appendChild(square);
+         square.css('background-color', '#666');
+      square.append(img_tag(i, j));
+      square.click(handle_click);
+      row.append(square);
    }
-   document.body.appendChild(row);
+   $('body').append(row);
 }
