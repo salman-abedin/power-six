@@ -8,7 +8,7 @@ Power Six is a web app I am working on in order to play chess with my friends on
 
 ### Online
 
-Go to [is.gd/powersix](https://is.gd/powersix) using the **Experimental Browser**
+Go to [powersix.ga](https://powersix.ga) using the **Experimental Browser**
 
 ### Offline
 
